@@ -1,0 +1,129 @@
+{
+  "navigation": {
+    "market": "Market",
+    "cases": "Cases",
+    "crash": "Crash", 
+    "balance": "Balance",
+    "earnings": "Earnings",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "save": "Save",
+    "apply": "Apply"
+  },
+  "languages": {
+    "ru": "Русский",
+    "en": "English"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "back": "Back"
+  },
+  "pages": {
+    "market": {
+      "title": "Market",
+      "description": "In development"
+    },
+    "cases": {
+      "title": "Cases",
+      "description": "In development"
+    },
+    "crash": {
+      "title": "Crash",
+      "description": "Crash game",
+      "nextRoundIn": "Next round in",
+      "seconds": "sec",
+      "players": "Players",
+      "noPlayers": "No bets placed yet",
+      "yourBet": "Your bet",
+      "placeBet": "Place bet",
+      "cashout": "Cashout",
+      "balance": "Balance",
+      "minBet": "Min.",
+      "maxBet": "Max",
+      "waitingNextRound": "Waiting for next round...",
+      "placing": "Placing...",
+      "cashing": "Cashing out...",
+      "you": "You",
+      "history": "Round history",
+      "average": "Average",
+      "maximum": "Maximum", 
+      "rounds": "Rounds",
+      "potentialWin": "Potential win"
+    },
+    "balance": {
+      "title": "Balance",
+      "description": "Manage your balance",
+      "tonBalance": "TON balance",
+      "starsBalance": "Stars balance",
+      "totalBalance": "Total balance",
+      "deposit": "Deposit",
+      "withdraw": "Withdraw",
+      "connectWallet": "Connect wallet",
+      "disconnectWallet": "Disconnect wallet",
+      "walletConnected": "Wallet connected",
+      "walletNotConnected": "Wallet not connected",
+      "walletAddress": "Wallet address",
+      "depositTon": "Deposit TON",
+      "depositStars": "Deposit Stars",
+      "depositGifts": "Deposit gifts",
+      "withdrawTon": "Withdraw TON",
+      "withdrawStars": "Withdraw Stars",
+      "amount": "Amount",
+      "minAmount": "Minimum amount",
+      "maxAmount": "Maximum amount",
+      "enterAmount": "Enter amount",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "processing": "Processing...",
+      "success": "Success",
+      "error": "Error",
+      "transactionHistory": "Transaction history",
+      "noTransactions": "No transactions",
+      "pending": "Pending",
+      "completed": "Completed",
+      "failed": "Failed",
+      "connectionError": "Failed to connect wallet. Please try again.",
+      "connectWalletForDeposit": "Connect TON wallet to deposit funds",
+      "transactionCancelled": "Transaction cancelled by user",
+      "insufficientFunds": "Insufficient funds in wallet",
+      "networkError": "Network error. Please check your internet connection",
+      "loadingBalance": "Loading balance...",
+      "loadingTransactions": "Loading transactions...",
+      "transactionTypes": {
+        "deposit": "Deposit",
+        "withdrawal": "Withdrawal",
+        "bet": "Bet",
+        "win": "Win",
+        "refund": "Refund",
+        "referral_bonus": "Referral Bonus"
+      },
+      "transactionStatus": {
+        "pending": "Pending",
+        "completed": "Completed",
+        "failed": "Failed",
+        "cancelled": "Cancelled"
+      }
+    },
+    "earnings": {
+      "title": "Earnings",
+      "description": "In development"
+    }
+  },
+  "earnings": {
+    "inviteTitle": "Invite referrals and get 10% from their deposits",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied!",
+    "inviteFriends": "Invite friends",
+    "totalReferrals": "Invited users",
+    "totalEarnings": "Total earnings",
+    "systemType": "System type",
+    "referralsList": "Referrals list",
+    "noReferrals": "You don't have referrals yet",
+    "shareText": "Win up to X100 with me!"
+  }
+}

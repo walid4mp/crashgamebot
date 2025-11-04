@@ -1,0 +1,23 @@
+@import './design-system.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* font-family определен в design-system.css, убираем дублирование */
+  body {
+    @apply text-telegram-text;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  /* Оставляем только уникальные Tailwind-based компоненты */
+  .input {
+    @apply bg-telegram-bg border border-gray-600 rounded-lg px-3 py-2 text-telegram-text placeholder-telegram-hint focus:outline-none focus:border-telegram-button transition-colors duration-200;
+  }
+}

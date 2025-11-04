@@ -1,0 +1,129 @@
+{
+  "navigation": {
+    "market": "Маркет",
+    "cases": "Кейсы", 
+    "crash": "Краш",
+    "balance": "Баланс",
+    "earnings": "Заработок",
+    "settings": "Настройки"
+  },
+  "settings": {
+    "title": "Настройки",
+    "language": "Язык",
+    "save": "Сохранить",
+    "apply": "Применить"
+  },
+  "languages": {
+    "ru": "Русский",
+    "en": "English"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "success": "Успешно",
+    "back": "Назад"
+  },
+  "pages": {
+    "market": {
+      "title": "Маркет",
+      "description": "В разработке"
+    },
+    "cases": {
+      "title": "Кейсы", 
+      "description": "В разработке"
+    },
+    "crash": {
+      "title": "Краш",
+      "description": "Краш игра",
+      "nextRoundIn": "Следующий раунд через",
+      "seconds": "сек",
+      "players": "Игроки",
+      "noPlayers": "Пока никто не сделал ставку",
+      "yourBet": "Ваша ставка",
+      "placeBet": "Поставить",
+      "cashout": "Забрать",
+      "balance": "Баланс",
+      "minBet": "Мин.",
+      "maxBet": "Макс",
+      "waitingNextRound": "Ожидание следующего раунда...",
+      "placing": "Размещение...",
+      "cashing": "Забираем...",
+      "you": "Вы",
+      "history": "История раундов",
+      "average": "Средний",
+      "maximum": "Максимум",
+      "rounds": "Раундов",
+      "potentialWin": "Потенциальный выигрыш"
+    },
+    "balance": {
+      "title": "Баланс",
+      "description": "Управление вашим балансом",
+      "tonBalance": "TON баланс",
+      "starsBalance": "Stars баланс",
+      "totalBalance": "Общий баланс",
+      "deposit": "Пополнить",
+      "withdraw": "Вывести",
+      "connectWallet": "Подключить кошелек",
+      "disconnectWallet": "Отключить кошелек",
+      "walletConnected": "Кошелек подключен",
+      "walletNotConnected": "Кошелек не подключен",
+      "walletAddress": "Адрес кошелька",
+      "depositTon": "Пополнить TON",
+      "depositStars": "Пополнить Stars",
+      "depositGifts": "Пополнить подарками",
+      "withdrawTon": "Вывести TON",
+      "withdrawStars": "Вывести Stars",
+      "amount": "Сумма",
+      "minAmount": "Минимальная сумма",
+      "maxAmount": "Максимальная сумма",
+      "enterAmount": "Введите сумму",
+      "confirm": "Подтвердить",
+      "cancel": "Отмена",
+      "processing": "Обработка...",
+      "success": "Успешно",
+      "error": "Ошибка",
+      "transactionHistory": "История транзакций",
+      "noTransactions": "Нет транзакций",
+      "pending": "В обработке",
+      "completed": "Завершена",
+      "failed": "Ошибка",
+      "connectionError": "Не удалось подключить кошелек. Попробуйте еще раз.",
+      "connectWalletForDeposit": "Подключите TON кошелек для пополнения баланса",
+      "transactionCancelled": "Транзакция отменена пользователем",
+      "insufficientFunds": "Недостаточно средств на кошельке",
+      "networkError": "Ошибка сети. Проверьте подключение к интернету",
+      "loadingBalance": "Загрузка баланса...",
+      "loadingTransactions": "Загрузка транзакций...",
+      "transactionTypes": {
+        "deposit": "Депозит",
+        "withdrawal": "Вывод",
+        "bet": "Ставка",
+        "win": "Выигрыш",
+        "refund": "Возврат",
+        "referral_bonus": "Реферальный бонус"
+      },
+      "transactionStatus": {
+        "pending": "В обработке",
+        "completed": "Завершено",
+        "failed": "Ошибка",
+        "cancelled": "Отменено"
+      }
+    },
+    "earnings": {
+      "title": "Заработок",
+      "description": "В разработке"
+    }
+  },
+  "earnings": {
+    "inviteTitle": "Пригласите рефералов и получайте 10% от их депозитов",
+    "copyLink": "Скопировать ссылку",
+    "linkCopied": "Ссылка скопирована!",
+    "inviteFriends": "Пригласить друзей",
+    "totalReferrals": "Приглашено пользователей",
+    "totalEarnings": "Общий заработок",
+    "systemType": "Тип системы",
+    "referralsList": "Список рефералов",
+    "noReferrals": "У вас пока нет рефералов",
+    "shareText": "Выигрывай до X100 вместе со мной!"
+  }
+}

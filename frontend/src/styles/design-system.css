@@ -1,0 +1,421 @@
+/* Современная дизайн-система для Telegram WebApp */
+
+/* ===== ЦВЕТОВАЯ ПАЛИТРА ===== */
+:root {
+  /* Только используемые переменные */
+  --bg-primary: #0A0A0A;        /* Основной темный фон */
+  --accent-primary: #FF8A65;    /* Пастельный оранжевый */
+  --text-primary: #FFFFFF;      /* Основной текст */
+  --text-secondary: #B0B0B0;    /* Вторичный текст */
+  --text-tertiary: #808080;     /* Третичный текст */
+  --border-subtle: #1A1A1A;     /* Тонкие границы */
+}
+
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+/* box-sizing уже определен в index.css, не дублируем */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: calc(var(--vh, 1vh) * 100); /* Динамическая высота для Telegram WebApp */
+  background-color: #0a0a0a;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: auto;
+  overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh; /* Современная единица для мобильных устройств */
+  min-height: calc(var(--vh, 1vh) * 100); /* Динамическая высота от Telegram WebApp */
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 140, 0, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(255, 99, 71, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 40% 70%, rgba(139, 69, 19, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 90% 80%, rgba(255, 165, 0, 0.1) 0%, transparent 60%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #1a1a2e 75%, #0f0f23 100%);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  /* Обеспечиваем плавную анимацию изменения высоты */
+  transition: min-height 0.3s ease;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(0, 0, 0, 0.5) 0%, transparent 70%),
+    radial-gradient(circle at 70% 60%, rgba(0, 0, 0, 0.4) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4) 100%);
+  filter: blur(1px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* ===== КОМПОНЕНТЫ ===== */
+
+/* Кнопки */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FF8A65 0%, #FF9A7A 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(255, 138, 101, 0.25);
+  border: 1px solid rgba(255, 138, 101, 0.2);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 138, 101, 0.35);
+  background: linear-gradient(135deg, #FF9A7A 0%, #FFAB91 100%);
+}
+
+/* Средний цвет градиента для переключателей */
+.currency-toggle-active {
+  background: #FF9A7A;
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 154, 122, 0.3);
+}
+
+
+
+
+/* Карточки */
+.card {
+  background: rgba(40, 40, 40, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+
+
+
+/* ===== LAYOUT ===== */
+
+/* Основной контейнер приложения */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh; /* Для мобильных устройств */
+  position: relative;
+  z-index: 1;
+}
+
+/* Контентная область */
+.main-content {
+  flex: 1;
+  min-height: 0;
+  padding: 20px 16px;
+  padding-bottom: 80px; /* Отступ для нижней навигации */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Дополнительные настройки для Telegram WebApp */
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+}
+
+/* Контейнеры */
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+
+
+/* ===== НАВИГАЦИЯ ===== */
+
+/* Нижняя навигация */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  padding: 8px 0;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  z-index: 1000;
+}
+
+.bottom-nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  min-width: 0;
+  flex: 1;
+  position: relative;
+}
+
+.nav-item.active {
+  color: var(--accent-primary);
+}
+
+.nav-item:not(.active) {
+  color: var(--text-tertiary);
+}
+
+.nav-item:hover:not(.active) {
+  color: var(--text-secondary);
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.05);
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Заголовок страницы */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 8px 16px;
+  padding-top: calc(8px + env(safe-area-inset-top, 0px));
+  padding-left: calc(16px + env(safe-area-inset-left, 0px));
+  padding-right: calc(16px + env(safe-area-inset-right, 0px));
+}
+
+.page-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 480px;
+  margin: 0;
+  padding-left: 0; /* Прижимаем к самому левому краю */
+}
+
+.page-title {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 6px 12px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+  margin-left: 0;
+}
+
+/* Профиль пользователя */
+.user-profile {
+  position: relative;
+  z-index: 10;
+}
+
+.user-profile-button {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+  margin-left: auto;
+}
+
+
+.user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FF8A65 0%, #FFAB91 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(255, 138, 101, 0.3);
+  transition: all 0.3s ease;
+  animation: avatarPulse 2s ease-in-out infinite;
+}
+
+@keyframes avatarPulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(255, 138, 101, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba(255, 138, 101, 0.5);
+  }
+}
+
+.avatar-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.avatar-initials {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.user-name {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.dropdown-arrow {
+  color: var(--text-secondary);
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.user-profile-button.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  min-width: 100px;
+  box-shadow: none;
+  z-index: 20;
+  overflow: visible;
+}
+
+.dropdown-item {
+  padding: 8px 16px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+  margin: 0;
+  background: rgba(40, 40, 40, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+  width: 100%;
+  display: block;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item:hover {
+  background: rgba(40, 40, 40, 0.8);
+}
+
+.dropdown-item:focus {
+  background: rgba(40, 40, 40, 0.7);
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-item:active {
+  background: rgba(40, 40, 40, 0.9);
+}
+
+
+.page-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 2px 0 0 0;
+  font-weight: 400;
+}
+
+
+
