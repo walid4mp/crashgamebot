@@ -4,6 +4,7 @@
   "description": "Frontend WebApp for Crash Game Bot",
   "type": "module",
   "scripts": {
+    "start": "vite preview --port $PORT",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
